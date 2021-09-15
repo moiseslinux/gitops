@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: static-web1
+  name: static-web1aaa
   labels:
     role: myrole
 spec:
