@@ -5,11 +5,21 @@ metadata:
   labels:
     role: myrole
 spec:
-  containers:
-    - name: web
-      image: nginx:alpine
-      ports:
-        - name: web
-          containerPort: 8082
-          protocol: TCP
+  selector:
+    matchLabels:
+      run: static-web2
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: php    
+  spec:
+    containers:
+      - name: static-web2
+        image: nginx:alpine
+        ports:
+          - name: web
+            containerPort: 8082
+            protocol: TCP
 #prueba
+
