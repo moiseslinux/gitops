@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       run: phpapache
-  replicas: 70
+  replicas: 2
   template:
     metadata:
       labels:
