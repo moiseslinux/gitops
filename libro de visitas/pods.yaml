@@ -12,3 +12,4 @@ spec:
         - name: web
           containerPort: 8082
           protocol: TCP
+#prueba
