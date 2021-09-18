@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+ name: web1
+ labels:
+   app: front
+
+spec:
+ replicas: 2 # We'll get three identical pods
+ selector:
+   matchLabels:
+     app: front
+ template:
+   metadata:
+     labels:
+       app: front
+   spec:
+     containers:
+      - name: web1
+        image: nginx:alpine
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-web1
+  namespace: default
+  labels:
+    app: front
+spec:
+  type: LoadBalancer
+  selector:
+    app: front
+  ports:
+    - protocol: TCP
+      port: 8081
