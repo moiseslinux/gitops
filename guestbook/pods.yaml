@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
- name: static-web2
+ name: static-web21
  labels:
    app: front
 
@@ -16,14 +16,14 @@ spec:
        app: front
    spec:
      containers:
-      - name: static-web2
+      - name: static-web21
         image: nginx:alpine
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: service-static-web2
+  name: service-static-web21
   namespace: default
   labels:
     app: front
