@@ -6,7 +6,7 @@ metadata:
    app: front
 
 spec:
- replicas: 4 # We'll get three identical pods
+ replicas: 3 # We'll get three identical pods
  selector:
    matchLabels:
      app: front
