@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: phpapache
+  name: phpapache-playbook
 spec:
   selector:
     matchLabels:
-      run: phpapache
+      run: phpapache-playbook
   replicas: 2
   template:
     metadata:
       labels:
-        run: phpapache
+        run: phpapache-playbook
     spec:
       containers:
-      - name: phpapache
+      - name: phpapache-playbook
         image: k8s.gcr.io/hpa-example
         ports:
         - containerPort: 80
@@ -26,11 +26,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: phpapache
+  name: phpapache-playbook
   labels:
-    run: phpapache
+    run: phpapache-playbook
 spec:
   ports:
   - port: 80
   selector:
-    run: php-apache
+    run: php-apache-playbook
