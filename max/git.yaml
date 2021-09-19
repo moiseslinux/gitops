@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: wordpress-helm
+  name: playbook
   namespace: argocd
 spec:
   source:
-    path: helm-dependency
+    path: playbook
     repoURL: https://github.com/moiseslinux/.git
     targetRevision: HEAD
   destination:
