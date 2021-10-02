@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
- name: static-web21
+ name: web1
  labels:
    app: front
 
 spec:
- replicas: 2 # We'll get three identical pods
+ replicas: 4 # We'll get three identical pods
  selector:
    matchLabels:
      app: front
@@ -16,14 +16,14 @@ spec:
        app: front
    spec:
      containers:
-      - name: static-web21
+      - name: web1
         image: nginx:alpine
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: service-static-web21
+  name: service-web1
   namespace: default
   labels:
     app: front
@@ -33,4 +33,4 @@ spec:
     app: front
   ports:
     - protocol: TCP
-      port: 8080
+      port: 8081
